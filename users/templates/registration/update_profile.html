@@ -1,0 +1,25 @@
+{% extends 'registration/base.html' %}
+
+{% block content %}
+
+<center>
+  <div class="card" style="width: 30rem;">
+      <div class="card-header" style="font-family: Helvetica; font-size: x-large;">
+          Update Profile
+      </div>
+      <div class="card-body">
+          <p class="card-text">
+              <form method="post" style="font-family: Helvetica; font-size: large;">
+                  {% csrf_token %}
+                  {{ form.as_p }}
+                  <button type="submit" class="btn btn-outline-info btn-lg">Update</button>
+                  &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <a href="{% url 'booking_calendar' %}">Cancel</a>
+              </form>
+          </p>
+      </div>
+  </div>
+</center>
+
+
+{% endblock %}

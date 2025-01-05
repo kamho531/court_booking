@@ -1,0 +1,26 @@
+{% extends 'registration/base.html' %}
+
+{% block content%}
+
+
+<center>
+    <div class="card" style="width: 28rem;">
+        <div class="card-header" style="font-family: Helvetica; font-size: x-large;">
+            Booking Successful
+        </div>
+        <div class="card-body">
+            <p class="card-text" style="font-size: large;">
+                Your court booking has been successfully processed.
+            </p>
+            <br
+        </div>
+        <div class="card-footer text-muted" style="font-size: large;">
+            <a href="{% url 'booking_calendar' %}">View Calendar</a>
+        </div>
+    </div>
+</center>
+
+
+
+
+{% endblock %}

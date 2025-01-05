@@ -1,0 +1,77 @@
+{% extends 'registration/base.html' %}
+
+{% block content%}
+
+<center>
+    <div class="card" style="width: 42rem;">
+        <div class="card-header" style="font-family: Helvetica; font-size: x-large;">
+            User Registration
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <form method="POST" action="">
+                    {% csrf_token %}
+                    {% if form.errors %}
+                        <div class="alert alert-warning alert-dismissible fade show" role="alert">
+                            There are errors in your form
+                            {% for field in form %}
+                                {% if field.errors %}
+                                    {{ field.errors }}
+                                {% endif %}
+                            {% endfor %}
+                            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                        </div>
+                    {% endif %}
+                    <div style="text-align: left;">
+                        <table class="table table-hover">
+                            <tbody>
+                              <tr>
+                                <td>{{ form.first_name }}</a></td>
+                                <td></td>
+                                <td>{{ form.last_name }}</td>
+                              </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                  <td>{{ form.username }}</td>
+                                  <td></td>
+                                  <td>{{ form.email }}</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="3" style="font-size: small; font-weight: normal;">Required. 150 characters or fewer. Letters, digits and @/./+/-/_ only.</th>
+                                </tr>
+                            </tbody>
+                            <tbody>
+                                <tr>
+                                  <td>{{ form.password1 }}</td>
+                                  <td></td>
+                                  <td>{{ form.password2 }}</td>
+                                </tr>
+                                <tr>
+                                    <th colspan="3" style="font-size: medium; font-weight: normal;">
+                                        <ul class="form-text text-muted small">
+                                            <li>Your password can't be too similar to your other personal information.</li>
+                                            <li>Your password must contain at least 8 characters.</li>
+                                            <li>Your password can't be a commonly used password.</li>
+                                            <li>Your password can't be entirely numeric.</li>
+                                        </ul>
+                                    </th>
+                                </tr>
+                            </tbody>
+                          </table>
+
+                    </div>                   
+                    <button type="submit" class="btn btn-outline-info btn-lg">Register</button>                  
+                </form>
+            </p>
+        </div>
+        <div class="card-footer text-muted" style="font-size: large;">
+            Already have an account? <a href="{% url 'custom_login' %}">Sign in</a> here!
+        </div>
+    </div>    
+</center>
+
+
+
+
+{% endblock %}

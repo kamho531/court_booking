@@ -1,0 +1,21 @@
+{% extends 'registration/base.html' %}
+
+{% block content%}
+
+<center>
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+            <p class="card-text" style="font-size: large;">
+                Your profile has been updated successfully.
+            </p>
+        </div>
+        <div class="card-footer text-muted" style="font-size: large;">
+            <a href="{% url 'booking_calendar' %}">View calendar</a>
+        </div>
+    </div>
+</center>
+
+
+
+
+{% endblock %}

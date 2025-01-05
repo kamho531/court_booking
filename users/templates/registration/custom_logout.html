@@ -1,0 +1,25 @@
+{% extends 'registration/base.html' %}
+
+{% block content%}
+
+<center>
+    <div class="card" style="width: 28rem;">
+        <div class="card-header" style="font-family: Helvetica; font-size: x-large;">
+            Confirm logout
+        </div>
+        <div class="card-body">
+            <p class="card-text">
+                <form method="post" style="font-family: Helvetica; font-size: large;" action="{% url 'custom_logout' %}">
+                    {% csrf_token %}
+                    <p>Are you sure you want to log out?</p>
+                    <button type="submit" class="btn btn-outline-info btn-lg">Logout</button>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    <a href="{% url 'booking_calendar' %}">Cancel</a>
+                </form>
+            </p>
+        </div>
+    </div>
+</center>
+
+
+{% endblock %}

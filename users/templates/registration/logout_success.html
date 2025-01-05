@@ -1,0 +1,21 @@
+{% extends 'registration/base.html' %}
+
+{% block content%}
+
+<center>
+    <div class="card" style="width: 28rem;">
+        <div class="card-body">
+            <p class="card-text" style="font-size: large;">
+                You have been logged out successfully.
+            </p>
+        </div>
+        <div class="card-footer text-muted" style="font-size: large;">
+            <a href="{% url 'custom_login' %}">Login again</a>
+        </div>
+    </div>
+</center>
+
+
+
+
+{% endblock %}
