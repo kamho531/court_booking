@@ -4,13 +4,29 @@
 
 
 <head>
+    <!-- Include Bootstrap CSS for styling (optional) -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .date-input, .time-input {
+            width: 180px; /* Adjust the width as needed */
+        }
+        .form-group.row .col-form-label {
+            text-align: right; /* Align the labels to the right */
+            padding-right: 5px; /* Adjust the spacing between label and input */
+        }
+        .form-group.row .col-sm-8 {
+            padding-left: 30; /* Remove left padding from input container */
+            text-align: left;
+        }
+        .form-group.row .form-control {
+            margin-left: 30; /* Remove left margin from input fields */
+        }        
+    </style>    
 
-    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.css">
 </head>
 <body>
     <center>
-        <div class="card" style="width: 28rem;">
+        <div class="card" style="width: 25rem;">
             <div class="card-header" style="font-family: Helvetica; font-size: x-large;">
                 Book a Court
             </div>
@@ -18,7 +34,37 @@
                 <p class="card-text">
                     <form method="POST" style="font-family: Helvetica; font-size: large;">
                         {% csrf_token %} 
-                        {{ form.as_p }}          
+                        <!-- {{ form.as_p }}           -->
+                        <div class="form-group row">
+                            <label for="id_booking_date" class="col-sm-4 col-form-label">Court</label>
+                            <div class="col-sm-8">
+                                {{ form.court }}
+                            </div>
+                        </div>                          
+                        <div class="form-group row">
+                            <label for="id_booking_date" class="col-sm-4 col-form-label">Booking Date</label>
+                            <div class="col-sm-8">
+                                {{ form.booking_date }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_start_time" class="col-sm-4 col-form-label">Start Time</label>
+                            <div class="col-sm-8">
+                                {{ form.start_time }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_end_time" class="col-sm-4 col-form-label">End Time</label>
+                            <div class="col-sm-8">
+                                {{ form.end_time }}
+                            </div>
+                        </div>
+                        <div class="form-group row">
+                            <label for="id_game_type" class="col-sm-4 col-form-label">Game Type</label>
+                            <div class="col-sm-8">
+                                {{ form.game_type }}
+                            </div>
+                        </div>
                         <div>
                             <label>User: {{ username }}</label>
                         </div><br>
@@ -44,25 +90,7 @@
         </div>
     {% endif %}
 
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-timepicker/1.13.18/jquery.timepicker.min.js"></script>
-    <script>
-        $(document).ready(function(){
-            $('.datepicker').datepicker({
-                dateFormat: 'yy-mm-dd'
-            });
-            $('.timepicker').timepicker({
-                timeFormat: 'h:i a',
-                interval: 30,
-                minTime: '8:00am',
-                maxTime: '6:00pm',
-                dynamic: false,
-                dropdown: true,
-                scrollbar: true
-            });
-        });
-    </script>
+
 </body>
 
 {% endblock %}

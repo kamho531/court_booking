@@ -15,7 +15,7 @@ def book_court(request):
         form = BookingForm(request.POST, user=request.user)
         if form.is_valid():
             booking = form.save(commit=False)
-            booking.user = request.user  # Ensure the user is set
+            booking.user = request.user  # Ensure the user is set to the current user
             if booking.court and booking.booking_date and booking.start_time and booking.end_time and booking.game_type:
                 try:
                     booking.clean()
